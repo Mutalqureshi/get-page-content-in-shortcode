@@ -1,0 +1,18 @@
+Get Page Content In shortcode
+
+/*
+Show pages using shortcode by passing their id and type
+*/
+function pageShortcode( $atts ) {
+	$output = '';
+	
+	if ( isset($atts['pageid']) && $atts['pageid']>0 ) {
+		$type=( isset($atts['type']) && !empty($atts['type'])   ?  $atts['type']  :  'page');
+		$output = myoutputShortcode($atts['pageid'], $type);
+	}	
+	
+    return $output;
+}
+add_shortcode( 'pageShortcode', 'pageShortcode' );
+10:05
+[pageShortcode type="page" pageid="123"]
